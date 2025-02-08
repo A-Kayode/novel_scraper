@@ -88,7 +88,7 @@ async def download_file(message):
 
 
 
-async def get_messages(channel, age: str|None, number: int|None):
+async def get_messages(channel, age: str|None, number: int|None, messages: int|None):
     """Get messages from the provided channel"""
 
     #parse options
@@ -100,7 +100,7 @@ async def get_messages(channel, age: str|None, number: int|None):
     download_count = 0
 
     # async for message in client.iter_messages(channel, 1, reverse=True, offset_id=2):
-    async for message in client.iter_messages(channel, reverse=reverse):
+    async for message in client.iter_messages(channel, reverse=reverse, limit=messages):
         # print(message.media.stringify())
         # print(message.document)
         # print(message.file, type(message.file))
